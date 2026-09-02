@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Appointments</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background-color: #173b6c;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 900px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Form Box */
+        .appointment-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+
+            border: 1px solid #ccc;
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .wrong {
+            border: 2px solid red;
+        }
+
+        .right {
+            border: 2px solid green;
+        }
+
+        /* Button */
+        .book-btn {
+            width: 100%;
+            padding: 13px;
+
+            background-color: #173b6c;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background-color: black;
+        }
+
+        #success {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Back */
+        .back {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 10px 20px;
+
+            background-color: #ddd;
+            color: #222;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Appointments
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="heading">
+
+            <h1>Book an Appointment</h1>
+
+            <p>
+                Schedule a consultation with a legal professional.
+            </p>
+
+        </div>
+
+
+        <div class="appointment-box">
+
+            <form onsubmit="bookAppointment(event)">
+
+
+                <!-- Lawyer + Service -->
+
+                <div class="row">
+
+                    <div class="field">
+
+                        <label>Select Lawyer</label>
+
+                        <select id="lawyer">
+
+                            <option value="">
+                                Select Lawyer
+                            </option>
+
+                            <option value="Rahul">
+                                Adv. Rahul Sharma
+                            </option>
+
+                            <option value="Priya">
+                                Adv. Priya Singh
+                            </option>
+
+                            <option value="Amit">
+                                Adv. Amit Verma
+                            </option>
+
+                            <option value="Neha">
+                                Adv. Neha Gupta
+                            </option>
+
+                        </select>
+
+                        <span id="lawyerError" class="error"></span>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Service</label>
+
+                        <select id="service">
+
+                            <option value="">
+                                Select Service
+                            </option>
+
+                            <option value="Consultation">
+                                Legal Consultation
+                            </option>
+
+                            <option value="Property">
+                                Property Law
+                            </option>
+
+                            <option value="Family">
+                                Family Law
+                            </option>
+
+                            <option value="Business">
+                                Business Law
+                            </option>
+
+                        </select>
+
+                        <span id="serviceError" class="error"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Date + Time -->
+
+                <div class="row">
+
+                    <div class="field">
+
+                        <label>Appointment Date</label>
+
+                        <input type="date" id="date">
+
+                        <span id="dateError" class="error"></span>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Appointment Time</label>
+
+                        <input type="time" id="time">
+
+                        <span id="timeError" class="error"></span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Consultation Type -->
+
+                <div class="field">
+
+                    <label>Consultation Type</label>
+
+                    <select id="type">
+
+                        <option value="">
+                            Select Consultation Type
+                        </option>
+
+                        <option value="Video">
+                            🎥 Video Call
+                        </option>
+
+                        <option value="Audio">
+                            📞 Audio Call
+                        </option>
+
+                        <option value="Chat">
+                            💬 Chat
+                        </option>
+
+                    </select>
+
+                    <span id="typeError" class="error"></span>
+
+                </div>
+
+
+                <!-- Issue -->
+
+                <div class="field">
+
+                    <label>Describe Your Legal Issue</label>
+
+                    <textarea id="issue"
+                        placeholder="Briefly describe your legal issue"></textarea>
+
+                    <span id="issueError" class="error"></span>
+
+                </div>
+
+
+                <!-- Button -->
+
+                <button type="submit" class="book-btn">
+                    📅 Book Appointment
+                </button>
+
+                <div id="success"></div>
+
+            </form>
+
+
+            <a href="dashboard.html" class="back">
+                ← Back to Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function bookAppointment(event) {
+
+            event.preventDefault();
+
+            let valid = true;
+
+
+            // Lawyer
+            let lawyer = document.getElementById("lawyer");
+
+            if (lawyer.value == "") {
+
+                lawyer.className = "wrong";
+
+                document.getElementById("lawyerError").innerText =
+                    "Please select lawyer";
+
+                valid = false;
+
+            } else {
+
+                lawyer.className = "right";
+
+                document.getElementById("lawyerError").innerText = "";
+            }
+
+
+            // Service
+            let service = document.getElementById("service");
+
+            if (service.value == "") {
+
+                service.className = "wrong";
+
+                document.getElementById("serviceError").innerText =
+                    "Please select service";
+
+                valid = false;
+
+            } else {
+
+                service.className = "right";
+
+                document.getElementById("serviceError").innerText = "";
+            }
+
+
+            // Date
+            let date = document.getElementById("date");
+
+            if (date.value == "") {
+
+                date.className = "wrong";
+
+                document.getElementById("dateError").innerText =
+                    "Please select appointment date";
+
+                valid = false;
+
+            } else {
+
+                date.className = "right";
+
+                document.getElementById("dateError").innerText = "";
+            }
+
+
+            // Time
+            let time = document.getElementById("time");
+
+            if (time.value == "") {
+
+                time.className = "wrong";
+
+                document.getElementById("timeError").innerText =
+                    "Please select appointment time";
+
+                valid = false;
+
+            } else {
+
+                time.className = "right";
+
+                document.getElementById("timeError").innerText = "";
+            }
+
+
+            // Consultation Type
+            let type = document.getElementById("type");
+
+            if (type.value == "") {
+
+                type.className = "wrong";
+
+                document.getElementById("typeError").innerText =
+                    "Please select consultation type";
+
+                valid = false;
+
+            } else {
+
+                type.className = "right";
+
+                document.getElementById("typeError").innerText = "";
+            }
+
+
+            // Legal Issue
+            let issue = document.getElementById("issue");
+
+            if (issue.value.trim() == "") {
+
+                issue.className = "wrong";
+
+                document.getElementById("issueError").innerText =
+                    "Please describe your legal issue";
+
+                valid = false;
+
+            } else {
+
+                issue.className = "right";
+
+                document.getElementById("issueError").innerText = "";
+            }
+
+
+            // Success
+            if (valid) {
+
+                document.getElementById("success").innerText =
+                    "Appointment booked successfully!";
+
+                alert("Appointment Booked Successfully!");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

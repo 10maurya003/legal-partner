@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Documents</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background-color: #173b6c;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 1000px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .heading {
+            margin-bottom: 25px;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Upload Box */
+        .upload-box {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .upload-box h2 {
+            color: #173b6c;
+            margin-bottom: 15px;
+        }
+
+        .upload-box input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .upload-btn {
+            padding: 10px 20px;
+            background-color: #173b6c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .upload-btn:hover {
+            background-color: black;
+        }
+
+        #uploadMessage {
+            color: green;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        /* Documents */
+        .documents {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .document {
+            background-color: white;
+            padding: 22px;
+            border-radius: 10px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .document h2 {
+            color: #173b6c;
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .document p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Status */
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .approved {
+            background-color: #d4edda;
+            color: green;
+        }
+
+        .review {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .rejected {
+            background-color: #f8d7da;
+            color: red;
+        }
+
+        /* View Button */
+        .view-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+
+            background-color: #173b6c;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .view-btn:hover {
+            background-color: black;
+        }
+
+        /* Back */
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+
+            background-color: #ddd;
+            color: #222;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+
+            .documents {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            My Documents
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="heading">
+
+            <h1>My Documents</h1>
+
+            <p>
+                Upload and manage your legal documents.
+            </p>
+
+        </div>
+
+
+        <!-- Upload -->
+
+        <div class="upload-box">
+
+            <h2>Upload New Document</h2>
+
+            <input type="file" id="document">
+
+            <br>
+
+            <button class="upload-btn"
+                    onclick="uploadDocument()">
+                📤 Upload Document
+            </button>
+
+            <div id="uploadMessage"></div>
+
+        </div>
+
+
+        <!-- Documents -->
+
+        <div class="documents">
+
+
+            <!-- Document 1 -->
+
+            <div class="document">
+
+                <h2>📄 Identity Proof</h2>
+
+                <p>
+                    File: identity-proof.pdf
+                </p>
+
+                <p>
+                    Uploaded: 20 August 2026
+                </p>
+
+                <span class="status approved">
+                    Approved
+                </span>
+
+                <br>
+
+                <a href="#" class="view-btn">
+                    View Document
+                </a>
+
+            </div>
+
+
+            <!-- Document 2 -->
+
+            <div class="document">
+
+                <h2>📄 Address Proof</h2>
+
+                <p>
+                    File: address-proof.pdf
+                </p>
+
+                <p>
+                    Uploaded: 22 August 2026
+                </p>
+
+                <span class="status review">
+                    Under Review
+                </span>
+
+                <br>
+
+                <a href="#" class="view-btn">
+                    View Document
+                </a>
+
+            </div>
+
+
+            <!-- Document 3 -->
+
+            <div class="document">
+
+                <h2>📄 Property Document</h2>
+
+                <p>
+                    File: property-document.pdf
+                </p>
+
+                <p>
+                    Uploaded: 25 August 2026
+                </p>
+
+                <span class="status review">
+                    Under Review
+                </span>
+
+                <br>
+
+                <a href="#" class="view-btn">
+                    View Document
+                </a>
+
+            </div>
+
+
+            <!-- Document 4 -->
+
+            <div class="document">
+
+                <h2>📄 Agreement</h2>
+
+                <p>
+                    File: agreement.pdf
+                </p>
+
+                <p>
+                    Uploaded: 15 August 2026
+                </p>
+
+                <span class="status rejected">
+                    Rejected
+                </span>
+
+                <br>
+
+                <a href="#" class="view-btn">
+                    View Document
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Back -->
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <script>
+
+        function uploadDocument() {
+
+            let file = document.getElementById("document");
+
+            if (file.files.length == 0) {
+
+                alert("Please select a document");
+
+            } else {
+
+                document.getElementById("uploadMessage").innerText =
+                    "Document uploaded successfully!";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

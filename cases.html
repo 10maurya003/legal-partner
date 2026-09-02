@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - My Cases</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background-color: #173b6c;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 1100px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .heading {
+            margin-bottom: 25px;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Case Cards */
+        .cases {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .case {
+            background-color: white;
+            padding: 22px;
+            border-radius: 10px;
+
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .case h2 {
+            color: #173b6c;
+            font-size: 19px;
+            margin-bottom: 15px;
+        }
+
+        .case p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .case strong {
+            color: #333;
+        }
+
+        /* Status */
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin-top: 5px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .active {
+            background-color: #d4edda;
+            color: green;
+        }
+
+        .pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .completed {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+
+            background-color: #173b6c;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn:hover {
+            background-color: black;
+        }
+
+        /* Back */
+        .back {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+
+            background-color: #ddd;
+            color: #222;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+        /* Mobile */
+        @media (max-width: 850px) {
+
+            .cases {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .cases {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            My Cases
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="heading">
+
+            <h1>My Cases</h1>
+
+            <p>
+                Track and manage all your legal cases.
+            </p>
+
+        </div>
+
+
+        <!-- Cases -->
+
+        <div class="cases">
+
+
+            <!-- Case 1 -->
+
+            <div class="case">
+
+                <h2>Property Dispute</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1001
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Rahul Sharma
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 10 August 2026
+                </p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+
+            <!-- Case 2 -->
+
+            <div class="case">
+
+                <h2>Family Matter</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1002
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Priya Singh
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 15 August 2026
+                </p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+
+            <!-- Case 3 -->
+
+            <div class="case">
+
+                <h2>Business Agreement</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1003
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Amit Verma
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 20 August 2026
+                </p>
+
+                <span class="status pending">
+                    Pending
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+
+            <!-- Case 4 -->
+
+            <div class="case">
+
+                <h2>Legal Documentation</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1004
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Neha Gupta
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 05 July 2026
+                </p>
+
+                <span class="status completed">
+                    Completed
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+
+            <!-- Case 5 -->
+
+            <div class="case">
+
+                <h2>Civil Case</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1005
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Rajesh Kumar
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 01 August 2026
+                </p>
+
+                <span class="status active">
+                    Active
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+
+            <!-- Case 6 -->
+
+            <div class="case">
+
+                <h2>Legal Consultation</h2>
+
+                <p>
+                    <strong>Case ID:</strong> LP-1006
+                </p>
+
+                <p>
+                    <strong>Lawyer:</strong> Adv. Anjali Mehta
+                </p>
+
+                <p>
+                    <strong>Started:</strong> 25 August 2026
+                </p>
+
+                <span class="status pending">
+                    Pending
+                </span>
+
+                <br>
+
+                <a href="#" class="btn">
+                    View Case
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Back -->
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</body>
+
+</html>

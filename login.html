@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        .navbar {
+            background-color: #173b6c;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .main {
+            width: 400px;
+            max-width: 90%;
+            margin: 60px auto;
+        }
+
+        .login-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #ccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b6c;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #173b6c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: black;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register a {
+            color: #173b6c;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #173b6c;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Login
+        </div>
+
+    </div>
+
+
+    <!-- Login -->
+
+    <div class="main">
+
+        <div class="login-box">
+
+            <h1>Customer Login</h1>
+
+
+            <form onsubmit="login(event)">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email">
+
+                <span id="emailError" class="error"></span>
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password">
+
+                <span id="passwordError" class="error"></span>
+
+
+                <button type="submit">
+                    🔐 Login
+                </button>
+
+            </form>
+
+
+            <div class="register">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Register Now
+                </a>
+
+            </div>
+
+
+            <a href="index.html" class="back">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function login(event) {
+
+            event.preventDefault();
+
+            let email =
+                document.getElementById("email").value.trim();
+
+            let password =
+                document.getElementById("password").value.trim();
+
+            let valid = true;
+
+
+            /* Email */
+
+            if (email == "") {
+
+                document.getElementById("emailError")
+                    .innerText =
+                    "Please enter email";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("emailError")
+                    .innerText = "";
+
+            }
+
+
+            /* Password */
+
+            if (password == "") {
+
+                document.getElementById("passwordError")
+                    .innerText =
+                    "Please enter password";
+
+                valid = false;
+
+            } else if (password.length < 6) {
+
+                document.getElementById("passwordError")
+                    .innerText =
+                    "Password must be at least 6 characters";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("passwordError")
+                    .innerText = "";
+
+            }
+
+
+            /* Login Success */
+
+            if (valid) {
+
+                alert("Login successful!");
+
+                window.location.href =
+                    "dashboard.html";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

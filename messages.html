@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Messages</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background-color: #173b6c;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 900px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+            margin-bottom: 8px;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Chat Box */
+        .chat-box {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Lawyer */
+        .chat-header {
+            background-color: #173b6c;
+            color: white;
+
+            padding: 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .photo {
+            width: 50px;
+            height: 50px;
+
+            border-radius: 50%;
+            background-color: white;
+            color: #173b6c;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+        }
+
+        .chat-header h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .online {
+            font-size: 13px;
+            color: #b8ffb8;
+        }
+
+        /* Messages */
+        .messages {
+            height: 400px;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            line-height: 1.4;
+        }
+
+        .lawyer-message {
+            background-color: #e9edf3;
+            color: #333;
+            margin-right: auto;
+        }
+
+        .customer-message {
+            background-color: #173b6c;
+            color: white;
+            margin-left: auto;
+        }
+
+        .time {
+            font-size: 11px;
+            margin-top: 5px;
+            opacity: 0.7;
+        }
+
+        /* Message Form */
+        .message-form {
+            border-top: 1px solid #ddd;
+            padding: 15px;
+
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-form input {
+            flex: 1;
+            padding: 12px;
+
+            border: 1px solid #ccc;
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        .message-form input:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        .send-btn {
+            padding: 12px 20px;
+
+            background-color: #173b6c;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .send-btn:hover {
+            background-color: black;
+        }
+
+        /* Back */
+        .back {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 10px 20px;
+
+            background-color: #ddd;
+            color: #222;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .messages {
+                height: 350px;
+            }
+
+            .message {
+                max-width: 85%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Messages
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="heading">
+
+            <h1>Messages</h1>
+
+            <p>
+                Communicate with your legal professional.
+            </p>
+
+        </div>
+
+
+        <!-- Chat -->
+
+        <div class="chat-box">
+
+
+            <!-- Chat Header -->
+
+            <div class="chat-header">
+
+                <div class="photo">
+                    👨‍⚖️
+                </div>
+
+                <div>
+
+                    <h2>
+                        Adv. Rahul Sharma
+                    </h2>
+
+                    <div class="online">
+                        ● Online
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Messages -->
+
+            <div class="messages" id="messages">
+
+
+                <!-- Lawyer Message -->
+
+                <div class="message lawyer-message">
+
+                    Hello! How can I help you with your
+                    legal matter?
+
+                    <div class="time">
+                        10:30 AM
+                    </div>
+
+                </div>
+
+
+                <!-- Customer Message -->
+
+                <div class="message customer-message">
+
+                    I need help regarding my property case.
+
+                    <div class="time">
+                        10:32 AM
+                    </div>
+
+                </div>
+
+
+                <!-- Lawyer Message -->
+
+                <div class="message lawyer-message">
+
+                    Sure. Please share the basic details
+                    of your property case.
+
+                    <div class="time">
+                        10:34 AM
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Send Message -->
+
+            <form class="message-form"
+                  onsubmit="sendMessage(event)">
+
+                <input type="text"
+                       id="messageInput"
+                       placeholder="Type your message...">
+
+                <button type="submit"
+                        class="send-btn">
+                    Send
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Back -->
+
+        <a href="dashboard.html" class="back">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <script>
+
+        function sendMessage(event) {
+
+            event.preventDefault();
+
+            let input =
+                document.getElementById("messageInput");
+
+            let message =
+                input.value.trim();
+
+            if (message == "") {
+
+                alert("Please type a message");
+
+                return;
+            }
+
+
+            // New message
+
+            let newMessage =
+                document.createElement("div");
+
+            newMessage.className =
+                "message customer-message";
+
+            newMessage.innerHTML =
+                message +
+                '<div class="time">Just now</div>';
+
+
+            document.getElementById("messages")
+                .appendChild(newMessage);
+
+
+            // Clear input
+
+            input.value = "";
+
+
+            // Scroll down
+
+            document.getElementById("messages")
+                .scrollTop =
+                document.getElementById("messages")
+                .scrollHeight;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

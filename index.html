@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Customer Platform</title>
+    <a href="login.html">Login</a>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        /* Navbar */
+
+        .navbar {
+            background-color: #173b6c;
+            color: white;
+
+            padding: 18px 40px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 450px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 60px 8%;
+
+            background-color: white;
+        }
+
+        .hero-text {
+            width: 55%;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            color: #173b6c;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            background-color: #173b6c;
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 6px;
+
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background-color: black;
+        }
+
+        .btn-light {
+            background-color: #ddd;
+            color: #222;
+        }
+
+        .btn-light:hover {
+            background-color: #bbb;
+        }
+
+        /* Hero Icon */
+
+        .hero-icon {
+            width: 35%;
+            text-align: center;
+        }
+
+        .hero-icon div {
+            width: 200px;
+            height: 200px;
+
+            margin: auto;
+
+            background-color: #173b6c;
+            color: white;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 90px;
+        }
+
+        /* Services */
+
+        .services {
+            padding: 50px 8%;
+            text-align: center;
+        }
+
+        .services h2 {
+            color: #173b6c;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .services > p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .service-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+        .service {
+            background-color: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .service h3 {
+            color: #173b6c;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Features */
+
+        .features {
+            background-color: white;
+
+            padding: 50px 8%;
+
+            text-align: center;
+        }
+
+        .features h2 {
+            color: #173b6c;
+            margin-bottom: 30px;
+        }
+
+        .feature-list {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .feature {
+            padding: 20px;
+        }
+
+        .feature h3 {
+            color: #173b6c;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+        }
+
+        /* Footer */
+
+        footer {
+            background-color: #173b6c;
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .hero-text {
+                width: 100%;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-icon {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn {
+                margin: 5px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="services.html">
+                Services
+            </a>
+
+            <a href="lawyers.html">
+                Lawyers
+            </a>
+
+            <a href="login.html">
+                Login
+            </a>
+
+            <a href="register.html">
+                Register
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>
+                Your Trusted Legal Partner
+            </h1>
+
+            <p>
+                Get professional legal services,
+                connect with experienced lawyers,
+                book consultations and manage
+                your legal matters from one place.
+            </p>
+
+            <a href="register.html" class="btn">
+                Get Started
+            </a>
+
+            <a href="services.html" class="btn btn-light">
+                Explore Services
+            </a>
+
+        </div>
+
+
+        <div class="hero-icon">
+
+            <div>
+                ⚖
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Services -->
+
+    <section class="services">
+
+        <h2>
+            Our Legal Services
+        </h2>
+
+        <p>
+            Professional legal support for your needs.
+        </p>
+
+
+        <div class="service-container">
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    ⚖️
+                </div>
+
+                <h3>
+                    Legal Consultation
+                </h3>
+
+                <p>
+                    Consult with experienced legal
+                    professionals.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Legal Documents
+                </h3>
+
+                <p>
+                    Prepare and manage important
+                    legal documents.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    🏛️
+                </div>
+
+                <h3>
+                    Court Cases
+                </h3>
+
+                <p>
+                    Track and manage your legal cases.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <div class="service-icon">
+                    👨‍⚖️
+                </div>
+
+                <h3>
+                    Find a Lawyer
+                </h3>
+
+                <p>
+                    Find the right legal professional
+                    for your case.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features -->
+
+    <section class="features">
+
+        <h2>
+            Why Choose Legal Partner?
+        </h2>
+
+
+        <div class="feature-list">
+
+
+            <div class="feature">
+
+                <h3>
+                    🔐 Secure Platform
+                </h3>
+
+                <p>
+                    Your account and legal information
+                    are securely managed.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    👨‍⚖️ Professional Lawyers
+                </h3>
+
+                <p>
+                    Connect with qualified legal
+                    professionals.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <h3>
+                    📱 Easy Management
+                </h3>
+
+                <p>
+                    Manage cases, documents,
+                    appointments and payments easily.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 Legal Partner
+        </p>
+
+        <p>
+            Your Trusted Legal Service Platform
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

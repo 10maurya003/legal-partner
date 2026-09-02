@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - My Profile</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background: #173b6c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 900px;
+            margin: 30px auto;
+        }
+
+        .heading {
+            margin-bottom: 20px;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+            margin-bottom: 5px;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Profile Box */
+        .profile-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-top {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .profile-photo {
+            width: 90px;
+            height: 90px;
+            background: #173b6c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            margin: auto;
+        }
+
+        .profile-top h2 {
+            margin-top: 10px;
+            color: #222;
+        }
+
+        /* Form */
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .field {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        textarea {
+            height: 90px;
+            resize: none;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        /* Buttons */
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            padding: 11px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .save {
+            background: #173b6c;
+            color: white;
+        }
+
+        .save:hover {
+            background: black;
+        }
+
+        .back {
+            background: #ddd;
+            color: #222;
+        }
+
+        .back:hover {
+            background: #bbb;
+        }
+
+        #message {
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 950px) {
+            .main {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Customer Profile
+        </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main">
+
+        <div class="heading">
+            <h1>My Profile</h1>
+
+            <p>
+                Manage your personal and account information.
+            </p>
+        </div>
+
+
+        <div class="profile-box">
+
+            <!-- Profile Photo -->
+            <div class="profile-top">
+
+                <div class="profile-photo">
+                    👤
+                </div>
+
+                <h2>Customer Profile</h2>
+
+            </div>
+
+
+            <form onsubmit="saveProfile(event)">
+
+                <!-- First Row -->
+                <div class="row">
+
+                    <div class="field">
+
+                        <label>Full Name</label>
+
+                        <input type="text"
+                               id="name"
+                               value="Ankit Maurya"
+                               placeholder="Enter your name">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Mobile Number</label>
+
+                        <input type="tel"
+                               id="mobile"
+                               value="9876543210"
+                               placeholder="Enter mobile number">
+
+                    </div>
+
+                </div>
+
+
+                <!-- Second Row -->
+                <div class="row">
+
+                    <div class="field">
+
+                        <label>Email Address</label>
+
+                        <input type="email"
+                               id="email"
+                               value="customer@gmail.com"
+                               placeholder="Enter email">
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>Account Type</label>
+
+                        <select id="account">
+
+                            <option value="Individual">
+                                Individual
+                            </option>
+
+                            <option value="Business">
+                                Business
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Third Row -->
+                <div class="row">
+
+                    <div class="field">
+
+                        <label>Country</label>
+
+                        <select id="country">
+
+                            <option>India</option>
+                            <option>Nepal</option>
+                            <option>USA</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="field">
+
+                        <label>State</label>
+
+                        <select id="state">
+
+                            <option>Uttar Pradesh</option>
+                            <option>Bihar</option>
+                            <option>Delhi</option>
+                            <option>Madhya Pradesh</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- District -->
+                <div class="field">
+
+                    <label>District</label>
+
+                    <select id="district">
+
+                        <option>Varanasi</option>
+                        <option>Jaunpur</option>
+                        <option>Mirzapur</option>
+                        <option>Prayagraj</option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Address -->
+                <div class="field">
+
+                    <label>Address</label>
+
+                    <textarea id="address"
+                              placeholder="Enter your address">Pahadiya, Varanasi, Uttar Pradesh, India</textarea>
+
+                </div>
+
+
+                <!-- Buttons -->
+                <div class="buttons">
+
+                    <button type="submit" class="save">
+                        Save Changes
+                    </button>
+
+                    <button type="button"
+                            class="back"
+                            onclick="location.href='dashboard.html'">
+                        Back to Dashboard
+                    </button>
+
+                </div>
+
+
+                <div id="message"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function saveProfile(event) {
+
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            if (name == "") {
+
+                alert("Please enter your name");
+
+                return;
+            }
+
+            document.getElementById("message").innerText =
+                "Profile updated successfully!";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

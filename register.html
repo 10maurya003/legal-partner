@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Create Account</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .register-box {
+            width: 500px;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            text-align: center;
+            color: #173b6c;
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 15px;
+            outline: none;
+            margin-bottom: 5px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #173b6c;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .wrong {
+            border: 2px solid red;
+        }
+
+        .right {
+            border: 2px solid green;
+        }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0 20px;
+            font-size: 14px;
+        }
+
+        .terms input {
+            width: auto;
+            margin: 0;
+        }
+
+        .terms label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #173b6c;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d294d;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+
+        .login a {
+            color: #173b6c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #success {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 550px) {
+            body {
+                padding: 15px;
+            }
+
+            .register-box {
+                width: 100%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="register-box">
+
+        <div class="logo">⚖ Legal Partner</div>
+
+        <div class="subtitle">
+            Customer Platform
+        </div>
+
+        <h2>Create Your Account</h2>
+
+        <form onsubmit="registerUser(event)">
+
+            <!-- Full Name -->
+            <label>Full Name</label>
+
+            <input type="text"
+                   id="name"
+                   placeholder="Enter your full name">
+
+            <span id="nameError" class="error"></span>
+
+
+            <!-- Email -->
+            <label>Email Address</label>
+
+            <input type="email"
+                   id="email"
+                   placeholder="Enter your email">
+
+            <span id="emailError" class="error"></span>
+
+
+            <!-- Mobile -->
+            <label>Mobile Number</label>
+
+            <input type="tel"
+                   id="mobile"
+                   placeholder="Enter 10 digit mobile number"
+                   maxlength="10">
+
+            <span id="mobileError" class="error"></span>
+
+
+            <!-- Account Type -->
+            <label>Account Type</label>
+
+            <select id="accountType">
+
+                <option value="">Select Account Type</option>
+
+                <option value="Individual">
+                    Individual
+                </option>
+
+                <option value="Business">
+                    Business
+                </option>
+
+            </select>
+
+            <span id="accountError" class="error"></span>
+
+
+            <!-- Password -->
+            <label>Password</label>
+
+            <input type="password"
+                   id="password"
+                   placeholder="Create password">
+
+            <span id="passwordError" class="error"></span>
+
+
+            <!-- Confirm Password -->
+            <label>Confirm Password</label>
+
+            <input type="password"
+                   id="confirmPassword"
+                   placeholder="Confirm password">
+
+            <span id="confirmError" class="error"></span>
+
+
+            <!-- Terms -->
+            <div class="terms">
+
+                <input type="checkbox" id="terms">
+
+                <label for="terms">
+                    I agree to the Terms & Conditions
+                </label>
+
+            </div>
+
+            <span id="termsError" class="error"></span>
+
+
+            <!-- Button -->
+            <button type="submit">
+                Create Account
+            </button>
+
+            <div id="success"></div>
+
+        </form>
+
+
+        <div class="login">
+            Already have an account?
+            <a href="index.html">Login</a>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function registerUser(event) {
+
+            event.preventDefault();
+
+            let valid = true;
+
+
+            // Name
+            let name = document.getElementById("name");
+
+            if (name.value.trim() == "") {
+
+                name.className = "wrong";
+
+                document.getElementById("nameError").innerText =
+                    "Please enter your name";
+
+                valid = false;
+
+            } else {
+
+                name.className = "right";
+
+                document.getElementById("nameError").innerText = "";
+            }
+
+
+            // Email
+            let email = document.getElementById("email");
+
+            if (!email.value.includes("@")) {
+
+                email.className = "wrong";
+
+                document.getElementById("emailError").innerText =
+                    "Please enter valid email";
+
+                valid = false;
+
+            } else {
+
+                email.className = "right";
+
+                document.getElementById("emailError").innerText = "";
+            }
+
+
+            // Mobile
+            let mobile = document.getElementById("mobile");
+
+            if (mobile.value.length != 10) {
+
+                mobile.className = "wrong";
+
+                document.getElementById("mobileError").innerText =
+                    "Enter 10 digit mobile number";
+
+                valid = false;
+
+            } else {
+
+                mobile.className = "right";
+
+                document.getElementById("mobileError").innerText = "";
+            }
+
+
+            // Account Type
+            let account = document.getElementById("accountType");
+
+            if (account.value == "") {
+
+                account.className = "wrong";
+
+                document.getElementById("accountError").innerText =
+                    "Please select account type";
+
+                valid = false;
+
+            } else {
+
+                account.className = "right";
+
+                document.getElementById("accountError").innerText = "";
+            }
+
+
+            // Password
+            let password = document.getElementById("password");
+
+            if (password.value.length < 6) {
+
+                password.className = "wrong";
+
+                document.getElementById("passwordError").innerText =
+                    "Password must be at least 6 characters";
+
+                valid = false;
+
+            } else {
+
+                password.className = "right";
+
+                document.getElementById("passwordError").innerText = "";
+            }
+
+
+            // Confirm Password
+            let confirmPassword =
+                document.getElementById("confirmPassword");
+
+            if (confirmPassword.value != password.value ||
+                confirmPassword.value == "") {
+
+                confirmPassword.className = "wrong";
+
+                document.getElementById("confirmError").innerText =
+                    "Password does not match";
+
+                valid = false;
+
+            } else {
+
+                confirmPassword.className = "right";
+
+                document.getElementById("confirmError").innerText = "";
+            }
+
+
+            // Terms
+            let terms = document.getElementById("terms");
+
+            if (!terms.checked) {
+
+                document.getElementById("termsError").innerText =
+                    "Please accept Terms & Conditions";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("termsError").innerText = "";
+            }
+
+
+            // Final
+            if (valid) {
+
+                document.getElementById("success").innerText =
+                    "Account created successfully!";
+
+                alert("Account Created Successfully!");
+
+                // Dashboard par bhejne ke liye:
+                // window.location.href = "dashboard.html";
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

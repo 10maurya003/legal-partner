@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Service Details</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 65px;
+            background-color: #173b6c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        /* Main */
+        .main {
+            width: 900px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        /* Service Box */
+        .service-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon {
+            font-size: 55px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #173b6c;
+            margin: 15px 0;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.6;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Details */
+        .details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .detail {
+            background-color: #f4f6f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .detail h3 {
+            color: #173b6c;
+            margin-bottom: 10px;
+        }
+
+        .detail p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Requirements */
+        .requirements {
+            margin-top: 25px;
+        }
+
+        .requirements h2 {
+            color: #173b6c;
+            margin-bottom: 15px;
+        }
+
+        .requirements li {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        /* Price */
+        .price {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #173b6c;
+        }
+
+        /* Buttons */
+        .buttons {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .book {
+            background-color: #173b6c;
+            color: white;
+        }
+
+        .book:hover {
+            background-color: black;
+        }
+
+        .back {
+            background-color: #ddd;
+            color: #222;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+        @media (max-width: 600px) {
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Service Details
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+    <div class="main">
+
+        <div class="service-box">
+
+            <!-- Icon -->
+            <div class="icon">
+                ⚖️
+            </div>
+
+            <!-- Title -->
+            <h1>Legal Consultation</h1>
+
+            <!-- Description -->
+            <p class="description">
+                Get professional legal advice from experienced
+                legal professionals for your legal concerns,
+                questions and requirements.
+            </p>
+
+
+            <!-- Details -->
+            <div class="details">
+
+                <div class="detail">
+
+                    <h3>Service Type</h3>
+
+                    <p>
+                        Online Legal Consultation
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>Consultation Time</h3>
+
+                    <p>
+                        Up to 30 Minutes
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>Professional</h3>
+
+                    <p>
+                        Experienced Legal Professional
+                    </p>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <h3>Mode</h3>
+
+                    <p>
+                        Online / Video Consultation
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Requirements -->
+            <div class="requirements">
+
+                <h2>Required Information</h2>
+
+                <ul>
+
+                    <li>Your Full Name</li>
+
+                    <li>Mobile Number</li>
+
+                    <li>Email Address</li>
+
+                    <li>Brief description of your legal issue</li>
+
+                    <li>Relevant documents, if required</li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- Price -->
+            <div class="price">
+                Starting from ₹499
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="buttons">
+
+                <a href="appointments.html" class="btn book">
+                    📅 Book Service
+                </a>
+
+                <a href="services.html" class="btn back">
+                    ← Back to Services
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

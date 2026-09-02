@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Partner - Payment Checkout</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        /* Navbar */
+
+        .navbar {
+            background-color: #173b6c;
+            color: white;
+            padding: 20px 30px;
+
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* Main */
+
+        .main {
+            width: 800px;
+            max-width: 90%;
+            margin: 30px auto;
+        }
+
+        .heading h1 {
+            color: #173b6c;
+        }
+
+        .heading p {
+            color: #666;
+        }
+
+        /* Payment Box */
+
+        .payment-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+
+            box-shadow: 0 3px 10px #ccc;
+        }
+
+        .payment-info {
+            background-color: #f4f6f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .payment-info p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .amount {
+            color: #173b6c;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        /* Form */
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+
+            border: 1px solid #ccc;
+            border-radius: 6px;
+
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #173b6c;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Button */
+
+        .pay-btn {
+            width: 100%;
+            padding: 13px;
+
+            background-color: #173b6c;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .pay-btn:hover {
+            background-color: black;
+        }
+
+        /* Success */
+
+        #success {
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Back */
+
+        .back {
+            display: inline-block;
+
+            margin-top: 20px;
+            padding: 10px 20px;
+
+            background-color: #ddd;
+            color: black;
+
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back:hover {
+            background-color: #bbb;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- Navbar -->
+
+    <div class="navbar">
+
+        <div class="logo">
+            ⚖ Legal Partner
+        </div>
+
+        <div>
+            Payment Checkout
+        </div>
+
+    </div>
+
+
+    <!-- Main -->
+
+    <div class="main">
+
+
+        <div class="heading">
+
+            <h1>Payment Checkout</h1>
+
+            <p>
+                Complete your payment for legal services.
+            </p>
+
+        </div>
+
+
+        <div class="payment-box">
+
+
+            <!-- Payment Information -->
+
+            <div class="payment-info">
+
+                <p>
+                    <b>Service:</b>
+                    Document Review
+                </p>
+
+                <p>
+                    <b>Lawyer:</b>
+                    Adv. Amit Verma
+                </p>
+
+                <p>
+                    <b>Payment ID:</b>
+                    PAY-1003
+                </p>
+
+                <p>
+                    <b>Amount:</b>
+                </p>
+
+                <div class="amount">
+                    ₹999
+                </div>
+
+            </div>
+
+
+            <!-- Payment Form -->
+
+            <form onsubmit="makePayment(event)">
+
+
+                <!-- Payment Method -->
+
+                <div class="field">
+
+                    <label>
+                        Payment Method
+                    </label>
+
+                    <select id="method">
+
+                        <option value="">
+                            Select Payment Method
+                        </option>
+
+                        <option value="upi">
+                            UPI
+                        </option>
+
+                        <option value="card">
+                            Debit / Credit Card
+                        </option>
+
+                        <option value="netbanking">
+                            Net Banking
+                        </option>
+
+                    </select>
+
+                    <span id="methodError" class="error"></span>
+
+                </div>
+
+
+                <!-- Name -->
+
+                <div class="field">
+
+                    <label>
+                        Name on Payment
+                    </label>
+
+                    <input type="text"
+                           id="name"
+                           placeholder="Enter your name">
+
+                    <span id="nameError" class="error"></span>
+
+                </div>
+
+
+                <!-- Payment Details -->
+
+                <div class="field">
+
+                    <label>
+                        Payment Details
+                    </label>
+
+                    <input type="text"
+                           id="details"
+                           placeholder="Enter UPI ID / Card Number">
+
+                    <span id="detailsError" class="error"></span>
+
+                </div>
+
+
+                <!-- Pay -->
+
+                <button type="submit" class="pay-btn">
+
+                    💳 Pay ₹999
+
+                </button>
+
+
+                <div id="success"></div>
+
+
+            </form>
+
+
+            <!-- Back -->
+
+            <a href="payments.html" class="back">
+
+                ← Back to Payments
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function makePayment(event) {
+
+            event.preventDefault();
+
+
+            let method =
+                document.getElementById("method").value;
+
+            let name =
+                document.getElementById("name").value.trim();
+
+            let details =
+                document.getElementById("details").value.trim();
+
+
+            let valid = true;
+
+
+            /* Method */
+
+            if (method == "") {
+
+                document.getElementById("methodError")
+                    .innerText =
+                    "Please select payment method";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("methodError")
+                    .innerText = "";
+
+            }
+
+
+            /* Name */
+
+            if (name.length < 2) {
+
+                document.getElementById("nameError")
+                    .innerText =
+                    "Please enter your name";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("nameError")
+                    .innerText = "";
+
+            }
+
+
+            /* Details */
+
+            if (details == "") {
+
+                document.getElementById("detailsError")
+                    .innerText =
+                    "Please enter payment details";
+
+                valid = false;
+
+            } else {
+
+                document.getElementById("detailsError")
+                    .innerText = "";
+
+            }
+
+
+            /* Success */
+
+            if (valid) {
+
+                document.getElementById("success")
+                    .innerText =
+                    "Payment successful!";
+
+                alert("Payment Successful!");
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
